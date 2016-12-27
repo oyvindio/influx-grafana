@@ -1,7 +1,7 @@
 version: '2'
 services:
   influxdb:
-    image: influxdb:latest
+    image: influxdb:1.1.1
     volumes:
       - data/influxdb:/var/lib/influxdb
       - influxdb.conf:/etc/influxdb/influxdb.conf
