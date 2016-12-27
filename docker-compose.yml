@@ -3,15 +3,15 @@ services:
   influxdb:
     image: influxdb:1.1.1
     volumes:
-      - data/influxdb:/var/lib/influxdb
-      - influxdb.conf:/etc/influxdb/influxdb.conf
+      - ./data/influxdb:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf:ro
     ports:
       - '8083:8083'
       - '8086:8086'
   grafana:
     image: grafana/grafana:4.0.2
     volumes:
-      - data/grafana:/var/lib/grafana
+      - ./data/grafana:/var/lib/grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=password
       - GF_SERVER_ROOT_URL=http://localhost:3000
